@@ -1,0 +1,42 @@
+PROCEDURE dot_product(v1,v2: ARRAY_OF INTEGER[2][100];)
+VAR
+    ps:INTEGER;
+BEGIN
+    ps:=(v1[0]*v2[0]) + (v1[1]*v2[1])
+END
+
+FUNCTION dot_product(v1,v2: ARRAY_OF INTEGER[2][100];) : INTEGER
+VAR
+    ps:=INTEGER
+BEGIN
+    ps:=(v1[0]*v2[0]) + (v1[1]*v2[1])
+    RETURN ps ;
+END
+
+ALGORITHM Produit scalaire
+VAR
+    i,j :INTEGER;
+    v1,v2 : ARRAY_OF INTEGER[2][100];
+BEGIN
+    write("give a number of pairs of vectors")
+    read(n)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        write("give x of v1")
+        read(v1[0])
+        write("give y of v1")
+        read(v1[1])
+    END_FOR
+    FOR j FROM 0 TO n-1 STEP 1  DO
+        write("give x of v2")
+        read(v2[0])
+        write("give y of v2")
+        read(v2[1])
+    END_FOR
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        FOR j FROM 0 TO n-1 STEP 1  DO
+            IF (ps:=dot_product(v1,v2)==0) THEN
+                write("les deux vecteur sont ortoghonos")
+            END_IF
+        END_FOR
+    END_FOR
+END
